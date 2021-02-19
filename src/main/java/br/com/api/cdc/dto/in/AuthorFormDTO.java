@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import br.com.api.cdc.entity.Author;
-import br.com.api.validation.anotation.UniqueEmail;
+import br.com.api.validation.anotation.UniqueValue;
 
 public class AuthorFormDTO {
 
@@ -14,7 +14,7 @@ public class AuthorFormDTO {
 
 	@NotBlank(message = "O campo email não pode estar em branco!")
 	@Email(message = "O campo email deve ser válido!")
-	@UniqueEmail
+	@UniqueValue(domainName = Author.class, fieldName = "email", message = "O email já consta na nossa base de dados!")
 	private String email;
 
 	@NotBlank(message = "O campo descrição não pode estar em branco!")
