@@ -23,7 +23,7 @@ public class AuthorController {
 	@PostMapping
 	public AuthorResponseDTO saveAuthor(@RequestBody @Valid AuthorFormDTO authorDto) {
 
-		@Valid Author author = authorDto.toModel();
+		Author author = authorDto.toModel();
 
 		authorRepository.save(author);
 
