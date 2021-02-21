@@ -1,6 +1,4 @@
-package br.com.api.cdc.dto.out;
-
-import br.com.api.cdc.entity.Category;
+package br.com.api.cdc.category;
 
 public class CategoryResponseDTO {
 

@@ -1,4 +1,4 @@
-package br.com.api.validation.validator;
+package br.com.api.cdc.generic_validation;
 
 import java.util.List;
 
@@ -10,9 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.util.Assert;
 
-import br.com.api.validation.anotation.UniqueValue;
-
-public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Object> {
+public class ExistsByIdValidator implements ConstraintValidator<ExistsById, Object> {
 
 	@PersistenceContext
 	private EntityManager manager;
@@ -21,7 +19,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Ob
 	private Class<?> klass;
 
 	@Override
-	public void initialize(UniqueValue params) {
+	public void initialize(ExistsById params) {
 		domainAttribute = params.fieldName();
 		klass = params.domainName();
 	}
@@ -38,7 +36,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Ob
 		Assert.state(list.size() <= 1,
 				"Foi encontrado maid de um " + klass + " com o atributo: " + domainAttribute + " = " + value);
 
-		return list.isEmpty();
+		return !list.isEmpty();
 	}
 
 }

@@ -1,9 +1,8 @@
-package br.com.api.cdc.dto.in;
+package br.com.api.cdc.category;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.api.cdc.entity.Category;
-import br.com.api.validation.anotation.UniqueValue;
+import br.com.api.cdc.generic_validation.UniqueValue;
 
 public class CategoryRequestDTO {
 

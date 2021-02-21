@@ -1,4 +1,4 @@
-package br.com.api.cdc.entity;
+package br.com.api.cdc.author;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +22,7 @@ public class Author {
 	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, length = 400)
 	private String description;
 
 	@Column(nullable = false,  unique = true)
@@ -30,7 +30,7 @@ public class Author {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dateTimeSignUp = LocalDateTime.now();
-
+	
 	public Author() {
 	}
 

@@ -1,4 +1,4 @@
-package br.com.api.cdc.entity;
+package br.com.api.cdc.category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
