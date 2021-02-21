@@ -52,7 +52,7 @@ public class BookController {
 		Book book = manager.find(Book.class, id);
 		
 		if(book == null) {
-			return ResponseEntity.badRequest().build();
+			return ResponseEntity.notFound().build();
 		}
 		
 		return ResponseEntity.ok(new BookResponsePageDetailDTO(book));
