@@ -36,6 +36,7 @@ public class Author {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dateTimeSignUp = LocalDateTime.now();
 	
+	@Deprecated
 	public Author() {
 	}
 
