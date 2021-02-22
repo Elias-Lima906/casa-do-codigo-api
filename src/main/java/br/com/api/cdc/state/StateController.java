@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.api.cdc.country.Country;
+
 @RestController
 @RequestMapping("/states")
 public class StateController {
@@ -28,6 +30,7 @@ public class StateController {
 
 		@Valid State state = request.toModel(manager);
 		manager.persist(state);
+		Country.addState(state, manager);
 		return ResponseEntity.ok(new StateResponseDTO(state));
 	}
 
