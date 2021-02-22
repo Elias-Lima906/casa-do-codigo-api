@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueValue {
 
-	String message() default "{br.com.api.validation.anotation.UniqueEmail}";
+	String message() default "{br.com.api.cdc.validation.UniqueEmail}";
 	
 	Class<?>[] groups() default { };
 	

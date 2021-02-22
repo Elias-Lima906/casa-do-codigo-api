@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistsById {
 
-	String message() default "{br.com.api.validation.anotation.UniqueEmail}";
+	String message() default "{br.com.api.cdc.validation.ExistsById}";
 	
 	Class<?>[] groups() default { };
 	
