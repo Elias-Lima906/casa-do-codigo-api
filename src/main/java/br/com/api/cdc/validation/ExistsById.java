@@ -1,4 +1,4 @@
-package br.com.api.cdc.generic_validation;
+package br.com.api.cdc.validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

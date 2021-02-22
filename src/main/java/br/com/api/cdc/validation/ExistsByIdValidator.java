@@ -1,4 +1,4 @@
-package br.com.api.cdc.generic_validation;
+package br.com.api.cdc.validation;
 
 import java.util.List;
 
