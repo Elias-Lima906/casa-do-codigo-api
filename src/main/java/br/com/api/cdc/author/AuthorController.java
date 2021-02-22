@@ -21,7 +21,7 @@ public class AuthorController {
 	@Transactional
 	public AuthorResponseDTO saveAuthor(@RequestBody @Valid AuthorRequestDTO authorDto) {
 
-		Author author = authorDto.toModel();
+		@Valid Author author = authorDto.toModel();
 
 		manager.persist(author);
 

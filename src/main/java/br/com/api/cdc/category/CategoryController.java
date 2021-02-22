@@ -21,7 +21,7 @@ public class CategoryController {
 	@Transactional
 	public CategoryResponseDTO postMethodName(@RequestBody @Valid CategoryRequestDTO categoryRequest) {
 		
-		Category category = categoryRequest.toModel();
+		@Valid Category category = categoryRequest.toModel();
 		
 		manager.persist(category);
 		 
