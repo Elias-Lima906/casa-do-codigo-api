@@ -1,40 +1,33 @@
-package br.com.api.cdc.country;
-
-import java.util.List;
+package br.com.api.cdc.costumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.api.cdc.exception.GlobalException;
+
 @RestController
-@RequestMapping("/countries")
-public class CountryController {
+@RequestMapping("/costumers")
+public class CostumerController {
 
 	@PersistenceContext
 	EntityManager manager;
 
 	@PostMapping
 	@Transactional
-	public CountryResponseDTO postMethodName(@RequestBody @Valid CountryRequestDTO request) {
+	public CostumerResponseDTO postMethodName(@RequestBody @Valid CostumerRequestDTO request) throws GlobalException {
 
-		@Valid
-		Country country = new Country(request.getName());
-		manager.persist(country);
-		return new CountryResponseDTO(country);
-	}
+		@Valid Costumer costumer = request.toModel(manager);
 
-	@GetMapping
-	public List<Country> findAllCountries() {
+		manager.persist(costumer);
 
-		return Country.findAllCountries(manager);
-
+		return new CostumerResponseDTO(costumer);
 	}
 
 }
