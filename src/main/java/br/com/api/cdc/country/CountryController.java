@@ -1,11 +1,9 @@
 package br.com.api.cdc.country;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -25,24 +23,18 @@ public class CountryController {
 	@PostMapping
 	@Transactional
 	public CountryResponseDTO postMethodName(@RequestBody @Valid CountryRequestDTO request) {
-		
-		@Valid Country country = new Country(request.getName());
+
+		@Valid
+		Country country = new Country(request.getName());
 		manager.persist(country);
 		return new CountryResponseDTO(country);
 	}
 
 	@GetMapping
-	public List<CountryResponseDTO> getMethodName() {
+	public List<Country> findAllCountries() {
 
-		Query query = manager.createQuery("SELECT c FROM Country c");
+		return Country.findAllCountries(manager);
 
-		List<Country> countries = query.getResultList();
-
-		List<CountryResponseDTO> countriesResponse = new ArrayList<CountryResponseDTO>();
-
-		countries.forEach(country -> countriesResponse.add(new CountryResponseDTO(country)));
-
-		return countriesResponse;
 	}
 
 }
