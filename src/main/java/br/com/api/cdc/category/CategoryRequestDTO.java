@@ -2,7 +2,7 @@ package br.com.api.cdc.category;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.api.cdc.generic_validation.UniqueValue;
+import br.com.api.cdc.validation.UniqueValue;
 
 public class CategoryRequestDTO {
 

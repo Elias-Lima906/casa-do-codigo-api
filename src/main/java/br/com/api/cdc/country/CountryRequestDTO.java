@@ -2,7 +2,7 @@ package br.com.api.cdc.country;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.api.cdc.generic_validation.UniqueValue;
+import br.com.api.cdc.validation.UniqueValue;
 
 public class CountryRequestDTO {
 

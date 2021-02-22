@@ -15,8 +15,8 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import br.com.api.cdc.author.Author;
 import br.com.api.cdc.category.Category;
-import br.com.api.cdc.generic_validation.ExistsById;
-import br.com.api.cdc.generic_validation.UniqueValue;
+import br.com.api.cdc.validation.ExistsById;
+import br.com.api.cdc.validation.UniqueValue;
 
 public class BookRequestDTO {
 
