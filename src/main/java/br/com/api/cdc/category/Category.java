@@ -1,10 +1,11 @@
-package br.com.api.cdc.entity;
+package br.com.api.cdc.category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Category {
@@ -13,13 +14,14 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank
 	@Column(nullable = false)
 	private String name;
 
 	public Category() {
 	}
 
-	public Category(String name) {
+	public Category(@NotBlank String name) {
 		this.name = name;
 	}
 

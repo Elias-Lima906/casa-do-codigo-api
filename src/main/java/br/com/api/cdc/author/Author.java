@@ -1,4 +1,4 @@
-package br.com.api.cdc.entity;
+package br.com.api.cdc.author;
 
 import java.time.LocalDateTime;
 
@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,18 +20,22 @@ public class Author {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank
 	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable = false)
+	@NotBlank @Size(max = 400)
+	@Column(nullable = false, length = 400)
 	private String description;
 
+	@NotBlank
 	@Column(nullable = false,  unique = true)
 	private String email;
 
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dateTimeSignUp = LocalDateTime.now();
-
+	
 	public Author() {
 	}
 

@@ -1,13 +1,12 @@
-package br.com.api.cdc.dto.in;
+package br.com.api.cdc.author;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.api.cdc.entity.Author;
-import br.com.api.validation.anotation.UniqueValue;
+import br.com.api.cdc.generic_validation.UniqueValue;
 
-public class AuthorFormDTO {
+public class AuthorRequestDTO {
 
 	@NotBlank(message = "O campo nome não pode estar em branco!")
 	private String name;
@@ -47,9 +46,7 @@ public class AuthorFormDTO {
 
 	public Author toModel() {
 
-		Author author = new Author(this.name, this.description, this.email);
-
-		return author;
+		return new Author(this.name, this.description, this.email);
 	}
 
 }

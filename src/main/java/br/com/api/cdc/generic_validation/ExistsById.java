@@ -1,4 +1,4 @@
-package br.com.api.validation.anotation;
+package br.com.api.cdc.generic_validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,13 +9,11 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import br.com.api.validation.validator.UniqueValueValidator;
-
 @Documented
-@Constraint(validatedBy = {UniqueValueValidator.class})
+@Constraint(validatedBy = {ExistsByIdValidator.class})
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UniqueValue {
+public @interface ExistsById {
 
 	String message() default "{br.com.api.validation.anotation.UniqueEmail}";
 	
